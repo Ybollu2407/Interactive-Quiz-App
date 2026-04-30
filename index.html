@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div id="startScreen">
+            <div class="quiz-header">
+                <h1 class="quiz-title">🧠 Knowledge Quiz</h1>
+                <p class="quiz-subtitle">Test your knowledge with our interactive quiz!</p>
+            </div>
+            <div class="quiz-actions">
+                <button class="btn btn-primary" onclick="startQuiz()">Start Quiz</button>
+                <button class="btn btn-secondary" onclick="showSettings()">Settings</button>
+            </div>
+        </div>
+
+       
+        <div id="settingsScreen" class="hidden">
+            <div class="quiz-header">
+                <h2 class="quiz-title">Quiz Settings</h2>
+            </div>
+            <div class="question-container">
+                <label for="categorySelect" style="display: block; margin-bottom: 10px; font-weight: 600;">Choose Category:</label>
+                <select id="categorySelect" style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid #e9ecef; font-size: 1.1em;">
+                    <option value="general">General Knowledge</option>
+                    <option value="science">Science</option>
+                    <option value="history">History</option>
+                    <option value="geography">Geography</option>
+                </select>
+            </div>
+            <div class="quiz-actions">
+                <button class="btn btn-primary" onclick="hideSettings()">Back to Quiz</button>
+            </div>
+        </div>
+
+       
+        <div id="quizScreen" class="hidden">
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            
+            <div class="score-display">
+                Score: <span id="currentScore">0</span> / <span id="totalQuestions">0</span>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number" id="questionNumber"></div>
+                <div class="question-text" id="questionText"></div>
+                <div class="answers-grid" id="answersGrid"></div>
+                <div class="feedback" id="feedback"></div>
+            </div>
+
+            <div class="quiz-actions">
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Next Question</button>
+                <button class="btn btn-secondary" onclick="endQuiz()">End Quiz</button>
+            </div>
+        </div>
+
+       
+        <div id="resultsScreen" class="hidden">
+            <div class="results-container">
+                <div class="quiz-title">Quiz Complete! 🎉</div>
+                <div class="results-score" id="finalScore">0%</div>
+                <div class="results-message" id="resultsMessage"></div>
+                <div class="results-details">
+                    <p><strong>Questions Answered:</strong> <span id="questionsAnswered">0</span></p>
+                    <p><strong>Correct Answers:</strong> <span id="correctAnswers">0</span></p>
+                    <p><strong>Time Taken:</strong> <span id="timeTaken">0</span> seconds</p>
+                </div>
+                <div class="quiz-actions">
+                    <button class="btn btn-primary" onclick="restartQuiz()">Try Again</button>
+                    <button class="btn btn-secondary" onclick="goHome()">Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
